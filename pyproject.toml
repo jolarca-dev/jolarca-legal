@@ -3,9 +3,9 @@ requires = ["setuptools>=69.0", "setuptools-scm>=8.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "jol-repo-template"
+name = "jol-m-legal"
 version = "0.1.0"
-description = "Enterprise repository template for the Journey of Life platform."
+description = "Legal governance (contracts, terms, privacy texts, DPAs) for the Journey Of Life marketplace."
 readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.12"

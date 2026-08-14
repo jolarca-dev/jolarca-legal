@@ -1,8 +1,8 @@
-"""Smoke tests for the repository template."""
+"""Smoke tests for the jol-m-legal repository scaffold."""
 
 
 def test_template_structure() -> None:
-    """Verify that essential template files exist."""
+    """Verify that essential repository files exist."""
     from pathlib import Path
 
     root = Path(__file__).resolve().parent.parent

@@ -1,63 +1,46 @@
-# JOL Repository Template
+# jol-m-legal
 
-Enterprise-grade repository template for the **Journey of Life (JOL)** platform — serving approximately 400,000 religious institution websites across 27 EU member states.
+**PRIVATE repository.** Single source of truth for legal governance of the
+Journey Of Life marketplace platform (LT / LV / EE markets): contracts,
+platform terms, privacy-facing legal texts, and data processing agreements.
 
-## Purpose
+> Hard rule: this repository stores **legal governance artifacts only** —
+> versioned texts, registers, and review tooling. It must **never** contain
+> executed contracts with personal data of signatories, case files, or
+> privileged correspondence; those remain in the legal matter management
+> system. Here we keep texts, indexes, and references.
 
-This template establishes the baseline structure, tooling configuration, and compliance scaffolding for all new JOL repositories. Every repository created from this template inherits:
+## Access
 
-- A CI/CD pipeline built on GitHub Actions
-- Security controls aligned with ISO 27001 and SOC 2
-- Privacy governance compatible with GDPR requirements
-- Automated code-quality enforcement via pre-commit hooks and Qodana
-- Dependabot-driven dependency updates routed through CODEOWNERS review
+| Role | Access | Notes |
+|---|---|---|
+| Legal counsel | Admin | Required reviewer on all legal texts |
+| DPO | Admin | Required reviewer on privacy-facing texts |
+| Engineering leads | Write | Via PR only; branch protection enforced |
+| Everyone else | None | Requests via issue, SLA: 2 business days |
+
+## Structure
+
+| Path | Content |
+|---|---|
+| `src/jol_m_legal/` | Legal tooling (text integrity checks, version diffing) |
+| `tests/` | Scaffold and tooling tests |
+| `docs/` | Architecture notes, DPIA template references |
+| `.github/` | CI workflows, CODEOWNERS, issue/PR templates |
 
 ## Quick Start
 
 ```bash
 # Clone the repository
-git clone https://github.com/journeyoflife-org/<repository-name>.git
-cd <repository-name>
+git clone https://github.com/journeyoflife-org/jol-m-legal.git
+cd jol-m-legal
 
-# Create and activate a Python virtual environment
+# Create and activate a Python virtual environment (Python >= 3.12)
 python3 -m venv .venv
 source .venv/bin/activate
 
 # Install development dependencies
 make install-dev
-
-# Install pre-commit hooks
-pre-commit install
-```
-
-## Repository Structure
-
-```
-├── README.md
-├── LICENSE
-├── SECURITY.md
-├── CONTRIBUTING.md
-├── CHANGELOG.md
-├── .gitignore
-├── .editorconfig
-├── Makefile
-├── pyproject.toml
-├── qodana.yaml
-├── .pre-commit-config.yaml
-├── .github/
-│   ├── CODEOWNERS
-│   ├── dependabot.yml
-│   ├── PULL_REQUEST_TEMPLATE.md
-│   ├── ISSUE_TEMPLATE/
-│   │   ├── bug_report.yml
-│   │   └── feature_request.yml
-│   └── workflows/
-│       ├── ci.yml
-│       ├── compliance-check.yml
-│       └── codeql.yml
-└── docs/
-    ├── architecture.md
-    └── DPIA-template.md
 ```
 
 ## Compliance Baseline
@@ -68,7 +51,8 @@ pre-commit install
 | ISO 27001      | Information security management              |
 | SOC 2          | Trust service criteria                       |
 
-All pull requests are subject to CODEOWNERS review. Security-sensitive paths require additional approvers as defined in `.github/CODEOWNERS`.
+All pull requests are subject to CODEOWNERS review. Security-sensitive paths
+require additional approvers as defined in `.github/CODEOWNERS`.
 
 ## Workflows
 
