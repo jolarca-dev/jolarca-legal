@@ -1,0 +1,24 @@
+# CODEOWNERS — Journey of Life
+#
+# Each line is a file pattern followed by one or more owners.
+# The last matching pattern takes precedence.
+# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default ownership — applied to all files not matched below.
+*                                   @journeyoflife-org/devops
+
+# Security-sensitive paths require additional review.
+.github/workflows/                  @journeyoflife-org/devops @journeyoflife-org/security
+.github/CODEOWNERS                  @journeyoflife-org/devops @journeyoflife-org/security
+SECURITY.md                         @journeyoflife-org/devops @journeyoflife-org/security
+
+# Dependency management
+.github/dependabot.yml              @journeyoflife-org/devops
+
+# Infrastructure and configuration
+pyproject.toml                      @journeyoflife-org/devops
+qodana.yaml                         @journeyoflife-org/devops
+.pre-commit-config.yaml             @journeyoflife-org/devops
+
+# Documentation
+docs/                               @journeyoflife-org/devops
