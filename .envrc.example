@@ -1,0 +1,16 @@
+# .envrc.example — operator environment template (direnv-compatible).
+# Copy to .envrc and fill in from Vaultwarden. .envrc is gitignored.
+# NEVER commit real values; NEVER paste tokens into issue trackers or chat.
+
+# ── Cross-repo publication (legal-text-sync.yml local runs) ───────────────
+# Fine-grained PAT scoped to jol-m-marketplace PR creation ONLY.
+# Rotation follows the same discipline as jol-m-infrastructure tokens.
+export LEGAL_SYNC_TOKEN=""
+
+# ── Consent registry cross-check (scripts/cross-check-consent.py) ─────────
+# Read-only token for the jol-m-compliance lawful-basis registry.
+export COMPLIANCE_RO_TOKEN=""
+
+# ── Document-management custody location (signed originals) ───────────────
+# Local path for operators who reconcile pointers against the DMS.
+# export DMS_ROOT="$HOME/dms/jol-m"

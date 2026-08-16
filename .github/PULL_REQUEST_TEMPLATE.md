@@ -1,30 +1,26 @@
-## Summary
+## Change summary
 
-<!-- Concise description of what this pull request changes and why. -->
+<!-- One paragraph: what changes, why, link to the intake issue. -->
 
-## Type of Change
+## Instrument checklist (mandatory — CONTRIBUTING.md)
 
-- [ ] Bug fix (non-breaking change that resolves an issue)
-- [ ] Feature (non-breaking change that adds functionality)
-- [ ] Breaking change (fix or feature that alters existing behaviour)
-- [ ] Refactor (code change that neither fixes a bug nor adds a feature)
-- [ ] Chore (build tooling, CI, documentation, or dependency updates)
+- Instrument class: [ ] legal-text  [ ] contract/vendor  [ ] contract/customer
+  [ ] employment  [ ] corporate record  [ ] memo/opinion  [ ] policy doc  [ ] tooling
+- Counterparty (if any): <!-- name, jurisdiction -->
+- Effective date targeted: <!-- ISO 8601, or "n/a" -->
+- Privilege flag: [ ] privileged  [ ] confidential  [ ] internal  [ ] public-via-pipeline
+- Executed versions left untouched: [ ] confirmed / n/a
+- Version bump for legal-texts (MAJOR/MINOR/PATCH): <!-- or n/a -->
+- Plain-language CHANGELOG entry added (legal-texts): [ ] yes / n/a
+- No personal data beyond load-bearing minimum: [ ] confirmed
+- No secrets or signing credentials introduced: [ ] confirmed
 
-## Related Issues
+## Publication & notice
 
-<!-- Reference related issues using #<number>. Delete if not applicable. -->
+<!-- For legal-text MAJOR changes: P2B 30-day notice plan + evidence
+location. For contract renewals: notice-window deadline. Or "n/a". -->
 
-## Checklist
+## Compliance notes
 
-- [ ] My code follows the project's coding standards.
-- [ ] I have added or updated tests that cover my changes.
-- [ ] All new and existing tests pass locally.
-- [ ] I have run `make check` and all pre-commit hooks pass.
-- [ ] My commits are signed (GPG or SSH).
-- [ ] I have updated documentation where necessary.
-- [ ] This change does not introduce new personal data processing.
-- [ ] I have flagged any code path that handles personal data (if applicable).
-
-## Additional Context
-
-<!-- Screenshots, links, deployment notes, or other relevant information. Delete if not applicable. -->
+<!-- Affected instruments (DSA / P2B / GDPR / GPSR / consumer law / VAT)
+or "none". -->

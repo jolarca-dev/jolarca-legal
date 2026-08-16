@@ -1,21 +1,26 @@
-MIT License
+Copyright (c) 2026 Journey of Life. All rights reserved.
 
-Copyright (c) 2024–2026 Journey of Life
+This repository is PRIVATE. It contains legal instruments, privileged
+work product, corporate records, and dispute material that must not be
+disclosed.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+INTERNAL USE ONLY. No part of this repository may be copied, distributed,
+published, mirrored, or incorporated into any public repository, artifact,
+or derivative work without prior written authorization from the
+Journey of Life general counsel.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+EXCEPTION — published legal texts: files under legal-texts/ are the
+canonical source of marketplace-facing texts (terms, privacy policy, etc.).
+They become public ONLY through the versioned publication pipeline
+(legal-text-sync.yml → jol-m-marketplace). Direct republication of
+draft, approved-but-not-effective, or privileged versions is prohibited.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+The license governing the public marketplace application code lives in the
+respective public repositories (see jol-m-marketplace). Open-source
+posture for code artifacts (CLA/DCO, AGPL-3.0 governance) is documented in
+intellectual-property/copyright/. This notice governs internal custody of
+legal records within the organization only.
+
+Unauthorized disclosure of this material — in particular privileged
+dispute material or personal data — is treated as a security incident of
+the highest severity class (see SECURITY.md).

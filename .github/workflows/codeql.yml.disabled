@@ -1,0 +1,5 @@
+# codeql.yml — inherited baseline, DISABLED for this repository.
+# CodeQL analyzes code; jol-m-legal contains documents, registers, and
+# small validation scripts only. The ci + compliance-check gates cover the
+# script surface. Re-enable if application code lands in this repository.
+# (Rename to codeql.yml to activate.)

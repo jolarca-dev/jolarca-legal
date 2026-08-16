@@ -1,0 +1,22 @@
+# .gitattributes — diff semantics for legal records.
+# Signed binaries must never produce misleading textual diffs; their
+# content is verified in the DMS custody location, not in git.
+
+* text=auto eol=lf
+
+# Binary instruments & evidence — no textual diff, no merge guessing
+*.pdf  binary
+*.doc  binary
+*.docx binary
+*.p7s  binary
+*.p7m  binary
+*.zip  binary
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+
+# Registers are data, not prose — keep whole-line semantics
+*.csv text eol=lf
+
+# Language identification for review tooling (docs-heavy repo)
+*.md linguist-documentation

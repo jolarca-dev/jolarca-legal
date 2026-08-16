@@ -1,40 +1,45 @@
-exclude: '^\.idea/|^\.venv/'
-
+# Pre-commit hooks — local gate before CI. Install once: pre-commit install
+# Legal-specific: privilege ≠ PII-free — privileged material still contains
+# personal data, so pattern checks run alongside secret scanning.
+# Hook revisions are PINNED; bump via dependabot-style review, never ad hoc.
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v5.0.0
     hooks:
       - id: trailing-whitespace
+        exclude: '\.md$'
       - id: end-of-file-fixer
       - id: check-yaml
-      - id: check-toml
+        args: [--allow-multiple-documents]
+      - id: check-json
       - id: check-merge-conflict
       - id: detect-private-key
       - id: check-added-large-files
-        args: ["--maxkb=500"]
+        args: ['--maxkb=512']
 
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.4.8
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.2
     hooks:
-      - id: ruff
-        args: ["--fix"]
-      - id: ruff-format
+      - id: gitleaks   # secrets must never reach git history
 
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.10.0
+  - repo: local
     hooks:
-      - id: mypy
-        args: ["--strict", "src"]
+      - id: check-csv
+        name: CSV structural gate (registers)
+        entry: python3 scripts/check-csv.py
+        language: system
+        files: '\.csv$'
+      - id: personal-data-scan
+        name: personal-data pattern scan (PII tripwire)
+        entry: bash scripts/check-personal-data.sh
+        language: system
+        # Flags Baltic national IDs, IBANs, and bulk email lists committed
+        # to tracked text. Tripwire only — see CONTRIBUTING.md minimization.
+        files: '\.(md|csv|txt|yml|yaml)$'
         pass_filenames: false
-
-  - repo: https://github.com/Yelp/detect-secrets
-    rev: v1.5.0
-    hooks:
-      - id: detect-secrets
-        args: ["--baseline", ".secrets.baseline"]
-
-  - repo: https://github.com/Lucas-C/pre-commit-hooks
-    rev: v1.5.5
-    hooks:
-      - id: forbid-crlf
-      - id: forbid-tabs
+      - id: legal-text-frontmatter
+        name: legal-text front-matter validation
+        entry: python3 scripts/legal-text-version.py --validate
+        language: system
+        files: '^legal-texts/.*\.md$'
+        pass_filenames: false

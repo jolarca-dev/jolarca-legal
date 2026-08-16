@@ -1,0 +1,48 @@
+name: Legal review request
+description: Product/marketing asks — copy review, feature legality, campaigns, pricing claims.
+labels: ["legal-review", "intake"]
+body:
+  - type: dropdown
+    id: subject
+    attributes:
+      label: Review subject
+      options:
+        - marketing copy/campaign
+        - product feature
+        - pricing/fee disclosure
+        - review/ranking mechanics
+        - email/notification copy
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: material
+    attributes:
+      label: Material or feature description
+      description: Paste the copy or describe the feature. Include target audience and channels. Do not include personal data.
+    validations:
+      required: true
+  - type: input
+    id: deadline
+    attributes:
+      label: Launch/publish date
+      description: ISO 8601. Reviews need ≥3 business days before launch.
+    validations:
+      required: true
+  - type: dropdown
+    id: jurisdiction
+    attributes:
+      label: Target markets
+      options: [LT only, LT+LV+EE (Baltics), EU-wide, other]
+    validations:
+      required: true
+  - type: textarea
+    id: claims
+    attributes:
+      label: Claims & disclosures
+      description: >-
+        Any superlatives, guarantees, personalized pricing, discounts with
+        reference prices, or religious/sacred framing? (Omnibus +
+        consumer-law hooks)
+    validations:
+      required: false

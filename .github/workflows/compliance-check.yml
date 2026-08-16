@@ -1,73 +1,38 @@
-name: Compliance Check
-
+# compliance-check.yml — inherited baseline: governance/policy presence.
+# Private repo: the LICENSE is an internal-use notice; every governance
+# file required by CONTRIBUTING.md must exist and stay non-empty.
+name: compliance-check
 on:
   pull_request:
+  push:
     branches: [main]
-
 permissions:
   contents: read
-  pull-requests: read
-
-concurrency:
-  group: compliance-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
-  license-headers:
-    name: License Header Check
+  compliance:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
-      - name: Check license headers
-        uses: apache/skywalking-eyes/header@v0.6.0
-        with:
-          mode: check
-        continue-on-error: false
-
-  secret-scanning:
-    name: Secret Scanning
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Run TruffleHog secret scanner
-        uses: trufflesecurity/trufflehog@main
-        with:
-          extra_args: --only-verified
-
-  policy-check:
-    name: Repository Policy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Verify required files exist
+      - name: Governance files present
         run: |
-          set -euo pipefail
-          required_files=(
-            "README.md"
-            "LICENSE"
-            "SECURITY.md"
-            "CONTRIBUTING.md"
-            "CHANGELOG.md"
-            ".gitignore"
-            ".github/CODEOWNERS"
-            ".github/dependabot.yml"
-          )
-          missing=()
-          for f in "${required_files[@]}"; do
-            if [ ! -f "$f" ]; then
-              missing+=("$f")
-            fi
+          for f in README.md LICENSE SECURITY.md CONTRIBUTING.md CHANGELOG.md \
+                   .github/CODEOWNERS .github/PULL_REQUEST_TEMPLATE.md; do
+            [ -s "$f" ] || { echo "MISSING/EMPTY: $f"; exit 1; }
           done
-          if [ ${#missing[@]} -gt 0 ]; then
-            echo "::error::Missing required files: ${missing[*]}"
-            exit 1
-          fi
-          echo "All required repository files present."
+
+      - name: Internal-use notice intact
+        run: grep -q "INTERNAL USE ONLY" LICENSE
+
+      - name: Privilege doctrine documented for restricted paths
+        run: |
+          for f in disputes/README.md regulatory/inquiries/README.md; do
+            grep -qi "privileg" "$f" || { echo "privilege doctrine missing: $f"; exit 1; }
+          done
+
+      - name: Executed contract folders carry a register entry rule
+        run: grep -q "_register.csv" contracts/README.md
+
+      - name: ADR numbering continuous
+        run: |
+          ls docs/adr/[0-9]*.md 2>/dev/null | sed 's/.*\///;s/-.*//' | awk 'NR>1 && $1!=p+1 {print "gap in ADR numbering"; exit 1} {p=$1}'

@@ -1,58 +1,46 @@
-name: Bug Report
-description: Report a defect or unexpected behaviour.
+name: Bug report
+description: Defect in a legal record, register, template, or this repo's automation (NOT an incident — use SECURITY.md for those)
 labels: ["bug"]
 body:
-  - type: markdown
+  - type: textarea
+    id: behavior
     attributes:
-      value: |
-        Provide sufficient detail to allow the team to reproduce and triage the issue.
-
-  - type: input
-    id: summary
-    attributes:
-      label: Summary
-      description: One-line description of the bug.
+      label: Observed vs expected behavior
+      description: What is wrong, what should be true. Do NOT paste privileged material or personal data into this issue.
     validations:
       required: true
-
-  - type: textarea
-    id: description
+  - type: dropdown
+    id: area
     attributes:
-      label: Description
-      description: Detailed description of the observed behaviour versus the expected behaviour.
+      label: Affected area
+      options:
+        - legal-texts
+        - contracts
+        - corporate
+        - platform-regulation
+        - intellectual-property
+        - regulatory
+        - disputes
+        - insurance
+        - opinions
+        - ci-cd
+        - scripts
+        - docs
+        - other
     validations:
       required: true
-
-  - type: textarea
-    id: reproduction
+  - type: dropdown
+    id: severity
     attributes:
-      label: Steps to Reproduce
-      description: Ordered list of steps to reproduce the issue.
-      placeholder: |
-        1. ...
-        2. ...
-        3. ...
+      label: Severity
+      description: If legal data may have leaked, STOP and follow SECURITY.md instead.
+      options: [minor (typo/format), moderate (wrong reference/date), major (wrong term/obligation recorded)]
     validations:
       required: true
-
-  - type: input
-    id: environment
+  - type: textarea
+    id: repro
     attributes:
-      label: Environment
-      description: "Runtime environment (e.g. Python version, OS, deployment target)."
-      placeholder: "Python 3.12, Ubuntu 24.04"
+      label: Reproduction / evidence
+      description: File path(s) and how the defect was discovered (audit, counterparty notice, product report).
     validations:
       required: true
-
-  - type: textarea
-    id: logs
-    attributes:
-      label: Logs and Error Output
-      description: Relevant log excerpts or stack traces. Redact any sensitive data before pasting.
-      render: text
-
-  - type: textarea
-    id: additional-context
-    attributes:
-      label: Additional Context
-      description: Screenshots, related issues, or other supporting information.

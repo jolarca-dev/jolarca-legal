@@ -1,0 +1,2 @@
+contract_id,counterparty,instrument_class,value_amount,value_currency,start_date,end_date,auto_renew,notice_days,owner,status
+# EXAMPLE-VND-0001,Acme Example UAB,msa,12000,EUR,2026-01-01,2026-12-31,yes,60,general-counsel,executed

@@ -1,24 +1,15 @@
+# Qodana static analysis — inherited from jol-repo-template baseline.
+# Legal repo profile: lint scripts; document content quality is handled by
+# the ci workflow (front-matter validation, personal-data scan) rather than
+# the Qodana linter.
 version: "1.0"
-
-linter: jetbrains/qodana-python-community:latest
-
+linter: jetbrains/qodana-python:2025.1
 profile:
   name: qodana.recommended
-
-projectJDK: python-3.12
-
 exclude:
   - name: All
     paths:
-      - .venv
-      - .git
       - .idea
-      - dist
-      - build
-      - .pytest_cache
-      - .mypy_cache
-      - htmlcov
-      - __pycache__
-
+      - .venv
 include:
-  - name: CheckDependencyLicenses
+  - name: CheckLicenseCopyright

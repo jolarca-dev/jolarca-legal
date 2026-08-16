@@ -1,24 +1,29 @@
-# CODEOWNERS — Journey of Life
-#
-# Each line is a file pattern followed by one or more owners.
-# The last matching pattern takes precedence.
-# See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+# CODEOWNERS — routes reviews; the approving-review COUNT is enforced by
+# branch protection / rulesets (see CONTRIBUTING.md, risk classes).
+# CODEOWNERS alone cannot require N approvers — do not rely on it for that.
 
-# Default ownership — applied to all files not matched below.
-*                                   @journeyoflife-org/devops
+# Default: general counsel owns the legal record
+*                                       @journeyoflife-org/general-counsel
 
-# Security-sensitive paths require additional review.
-.github/workflows/                  @journeyoflife-org/devops @journeyoflife-org/security
-.github/CODEOWNERS                  @journeyoflife-org/devops @journeyoflife-org/security
-SECURITY.md                         @journeyoflife-org/devops @journeyoflife-org/security
+# Executed instruments and all marketplace legal texts — GC required (§3)
+/legal-texts/                           @journeyoflife-org/general-counsel
+/contracts/                             @journeyoflife-org/general-counsel
 
-# Dependency management
-.github/dependabot.yml              @journeyoflife-org/devops
+# Privileged paths — GC + retained counsel; restricted by design
+/disputes/                              @journeyoflife-org/general-counsel @journeyoflife-org/retained-counsel
+/regulatory/inquiries/                  @journeyoflife-org/general-counsel @journeyoflife-org/retained-counsel
+/opinions/                              @journeyoflife-org/general-counsel
 
-# Infrastructure and configuration
-pyproject.toml                      @journeyoflife-org/devops
-qodana.yaml                         @journeyoflife-org/devops
-.pre-commit-config.yaml             @journeyoflife-org/devops
+# Corporate records and signing authority
+/corporate/                             @journeyoflife-org/general-counsel
+/docs/signing-authority-matrix.md       @journeyoflife-org/general-counsel
 
-# Documentation
-docs/                               @journeyoflife-org/devops
+# Employment contracts — access-restricted path
+/contracts/employment/                  @journeyoflife-org/general-counsel
+
+# Automation touching the legal record needs security in the loop
+/.github/workflows/                     @journeyoflife-org/general-counsel @journeyoflife-org/security
+/scripts/                               @journeyoflife-org/general-counsel @journeyoflife-org/security
+
+# Compliance evidence linkage (lawful-basis registry cross-check)
+/scripts/cross-check-consent.py         @journeyoflife-org/general-counsel @journeyoflife-org/compliance

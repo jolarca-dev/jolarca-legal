@@ -1,0 +1,47 @@
+# legal-text-sync.yml — publication pipeline for canonical legal texts.
+# Triggers on legal-text release tags (legal-texts-vX.Y.Z). Builds the
+# publish manifest, then:
+#   1. opens a PR against jol-m-marketplace pinning the new versions, and
+#   2. notifies the consent registry (jol-m-compliance lawful-basis) that
+#      the underlying text versions changed — consent recorded against an
+#      old version must be re-evaluated.
+# MAJOR changes additionally require the P2B 30-day notice evidence to be
+# linked in the tag annotation BEFORE tagging (see platform-regulation/p2b).
+name: legal-text-sync
+on:
+  push:
+    tags: ["legal-texts-v*"]
+permissions:
+  contents: read
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Set up Python
+        uses: actions/setup-python@a379cfe2253b2a72d6cd7c54c3a5cf16d0b9e529 # v5.6.0
+        with:
+          python-version: "3.12"
+
+      - name: Validate & build publish manifest
+        run: |
+          python3 scripts/legal-text-version.py --validate
+          python3 scripts/legal-text-version.py --manifest > publish-manifest.json
+
+      - name: Cross-check consent registry consistency
+        env:
+          COMPLIANCE_RO_TOKEN: ${{ secrets.COMPLIANCE_RO_TOKEN }}
+        run: python3 scripts/cross-check-consent.py --manifest publish-manifest.json
+
+      - name: Open marketplace PR pinning new versions
+        env:
+          # Fine-grained PAT scoped to jol-m-marketplace PR creation only.
+          LEGAL_SYNC_TOKEN: ${{ secrets.LEGAL_SYNC_TOKEN }}
+        run: |
+          # TODO(legal-automation): on first production run, wire this to
+          # `gh pr create` against journeyoflife-org/jol-m-marketplace using
+          # LEGAL_SYNC_TOKEN, attaching publish-manifest.json and the
+          # plain-language changelog excerpts. Kept dry-run until the
+          # marketplace repo exposes the legal-text pin contract.
+          echo "::notice::Dry run — manifest validated, PR creation pending marketplace pin contract."

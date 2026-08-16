@@ -1,139 +1,60 @@
-# Data Protection Impact Assessment (DPIA) Template
+# DPIA template — GDPR Art. 35
 
-This document provides the standard DPIA structure required under Article 35 of the GDPR for any JOL feature or system change that introduces or modifies personal data processing.
+Template-inherited from the fleet baseline; legal-flavored extensions
+below. **Completed DPIAs file in `jol-m-compliance/dpia/`** — this
+repository keeps the template and legal-side inputs only.
 
-## 1. Assessment Metadata
+**When required:** any change introducing or altering processing of
+personal data (new data flow, new retention, new processor, new
+analytics). Attach the completed DPIA to the change request BEFORE
+implementation. Legal-text changes touching purposes/bases additionally
+trigger the consent cross-check (see `legal-texts/README.md`).
 
-| Field                    | Value                              |
-|--------------------------|------------------------------------|
-| **Project / Feature**    |                                    |
-| **Repository**           |                                    |
-| **DPIA Reference**       |                                    |
-| **Author**               |                                    |
-| **Data Protection Officer (DPO) Review** |                    |
-| **Date Created**         |                                    |
-| **Date Approved**        |                                    |
-| **Review Cycle**         | Annual or upon material change     |
+---
 
-## 2. Processing Description
+## 1. Processing description
 
-### 2.1 Nature of Processing
+- Purpose of processing:
+- Categories of data subjects:
+- Categories of personal data (flag special categories Art. 9 —
+  religious beliefs are Art. 9 data: sacred-goods and ritual features
+  must be checked against this explicitly):
+- Data flows (source → processing → storage → recipients):
+- Legal basis (Art. 6):
+- Retention period & deletion mechanism (tie to `retention-schedule.md`):
 
-Describe the personal data processing operations, including collection, storage, modification, disclosure, and deletion.
+## 2. Necessity & proportionality
 
-### 2.2 Scope of Processing
+- Why is each data element necessary?
+- Minimization measures (pseudonymization, tokenization, aggregation):
+- Alternatives considered and rejected:
 
-Define the geographical, temporal, and organisational scope of the processing activity.
+## 3. Risk assessment (to rights & freedoms)
 
-### 2.3 Context of Processing
+| Risk scenario | Likelihood | Impact | Mitigation |
+|---------------|------------|--------|------------|
+|               |            |        |            |
 
-Describe the relationship with data subjects and their reasonable expectations regarding the processing.
+## 4. Technical & organizational measures
 
-### 2.4 Purpose of Processing
+- Encryption at rest / in transit:
+- Access control (who, how granted, review cadence):
+- Residency: EU-only unless SCCs + transfer assessment documented:
+- Breach detection & notification path (72h, Art. 33 — SECURITY.md order):
 
-State the specific, explicit, and legitimate purposes for which personal data is processed.
+## 5. Processor/sub-processor check
 
-## 3. Lawful Basis
+- New third parties introduced? List, DPA status
+  (`contracts/00-templates/dpa-controller-processor.md`), location:
 
-Identify the lawful basis under GDPR Article 6 (and Article 9 for special categories, if applicable):
+## 6. Legal-text impact (legal extension)
 
-| Processing Activity | Lawful Basis (Art. 6) | Special Category Basis (Art. 9) | Justification |
-|---------------------|-----------------------|----------------------------------|---------------|
-|                     |                       |                                  |               |
+- Which legal texts change as a result (privacy/cookie/buyer-terms)?
+- Version bump classification (MAJOR/MINOR/PATCH):
+- Consent re-evaluation needed: yes/no:
 
-## 4. Data Inventory
+## 7. Conclusion & sign-off
 
-| Data Element | Category (personal / sensitive) | Source | Recipients | Retention Period | Storage Location |
-|--------------|---------------------------------|--------|------------|------------------|------------------|
-|              |                                 |        |            |                  |                  |
-
-## 5. Necessity and Proportionality
-
-Demonstrate that the processing is necessary for the stated purpose and that no less intrusive means are available.
-
-- [ ] Data minimisation applied.
-- [ ] Purpose limitation verified.
-- [ ] Storage limitation enforced.
-- [ ] Accuracy mechanisms in place.
-- [ ] Data subject rights supported (access, rectification, erasure, portability, objection).
-
-## 6. Risk Assessment
-
-### 6.1 Risk Identification
-
-Identify risks to the rights and freedoms of data subjects, considering likelihood and severity.
-
-| Risk ID | Risk Description | Affected Data Subjects | Likelihood | Severity | Risk Level |
-|---------|------------------|------------------------|------------|----------|------------|
-| R-001   |                  |                        |            |          |            |
-
-Rating scales: **Low** / **Medium** / **High** / **Critical**.
-
-### 6.2 Risk Treatment
-
-For each identified risk, define mitigation measures.
-
-| Risk ID | Mitigation Measure | Residual Risk | Owner | Status |
-|---------|--------------------|---------------|-------|--------|
-| R-001   |                    |               |       |        |
-
-## 7. Technical and Organisational Measures
-
-| Measure Category           | Implementation                                          |
-|----------------------------|---------------------------------------------------------|
-| Encryption at rest         |                                                         |
-| Encryption in transit      |                                                         |
-| Access control             |                                                         |
-| Audit logging              |                                                         |
-| Data pseudonymisation      |                                                         |
-| Incident response          |                                                         |
-| Staff training             |                                                         |
-| Vendor management          |                                                         |
-
-## 8. Cross-Border Transfers
-
-If personal data is transferred outside the EEA, document the transfer mechanism:
-
-| Destination Country | Transfer Mechanism (SCCs, adequacy decision, etc.) | Safeguards |
-|---------------------|----------------------------------------------------|------------|
-|                     |                                                    |            |
-
-## 9. Data Subject Rights
-
-Describe how the system supports the exercise of data subject rights:
-
-| Right                  | System Capability | Responsible Team | SLA         |
-|------------------------|-------------------|------------------|-------------|
-| Access (Art. 15)       |                   |                  |             |
-| Rectification (Art. 16)|                   |                  |             |
-| Erasure (Art. 17)      |                   |                  |             |
-| Portability (Art. 20)  |                   |                  |             |
-| Objection (Art. 21)    |                   |                  |             |
-
-## 10. Consultation
-
-### 10.1 Internal Consultation
-
-List internal stakeholders consulted during this assessment.
-
-### 10.2 Data Subject Consultation
-
-Describe whether and how data subjects or their representatives were consulted.
-
-### 10.3 DPO Opinion
-
-The Data Protection Officer's formal opinion on the processing and residual risk.
-
-## 11. Approval
-
-| Role | Name | Date | Decision |
-|------|------|------|----------|
-| Project Lead | | | |
-| DPO | | | |
-| CISO | | | |
-
-## 12. Review Log
-
-| Date | Reviewer | Trigger | Outcome |
-|------|----------|---------|---------|
-|      |          |         |         |
+- Residual risk acceptable? (yes/no + rationale)
+- DPO consulted (Art. 35.2): date / name
+- Approved by: / Date:

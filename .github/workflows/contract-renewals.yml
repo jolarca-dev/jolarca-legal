@@ -1,0 +1,61 @@
+# contract-renewals.yml — weekly renewal & notice-window automation.
+# Parses contracts/**/_register.csv and opens (or refreshes) one task per
+# instrument entering its 90/60/30-day window before expiry or before the
+# non-renewal notice deadline. Notice deadlines win: missing a notice
+# window locks in another contract year.
+name: contract-renewals
+on:
+  schedule:
+    - cron: "30 6 * * MON"   # Mondays 06:30 UTC
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  renewals:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Set up Python
+        uses: actions/setup-python@a379cfe2253b2a72d6cd7c54c3a5cf16d0b9e529 # v5.6.0
+        with:
+          python-version: "3.12"
+
+      - name: Compute upcoming renewals & notice windows
+        run: python3 scripts/renewal-report.py --json --days 90 > renewals.json
+
+      - name: Open/refresh renewal tasks
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import json, subprocess, datetime
+          today = datetime.date.today().isoformat()
+          items = json.load(open("renewals.json"))
+          for item in items:
+              title = f"Renewal {item['days_left']}d: {item['counterparty']} ({item['contract_id']})"
+              body = (
+                  f"Automated renewal task — generated {today}.\n\n"
+                  f"- Counterparty: **{item['counterparty']}**\n"
+                  f"- Instrument: {item['instrument_class']}\n"
+                  f"- End date: {item['end_date']} | auto-renew: {item['auto_renew']}\n"
+                  f"- Notice window: {item['notice_days']} days → deadline {item['notice_deadline']}\n"
+                  f"- Owner: {item['owner']}\n\n"
+                  "Decision due: renew / renegotiate / serve notice / exit.\n"
+                  "See contracts/README.md lifecycle. Do not paste contract terms "
+                  "into other repositories."
+              )
+              # Refresh, don't duplicate: search by contract id label in title.
+              found = subprocess.run(
+                  ["gh", "issue", "list", "--state", "open", "--search",
+                   f"{item['contract_id']} in:title", "--json", "number"],
+                  capture_output=True, text=True, check=True).stdout
+              if json.loads(found or "[]"):
+                  continue
+              subprocess.run(["gh", "issue", "create", "--title", title,
+                              "--body", body, "--label", "contract,renewal"],
+                             check=True)
+          PY
