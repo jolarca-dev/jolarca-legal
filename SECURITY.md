@@ -1,62 +1,60 @@
-# Security Policy
+# Security Policy — jol-m-legal
 
-## Supported Versions
+## Severity doctrine
 
-Only the latest release on the `main` branch receives security updates. Prior versions are not supported.
+**Any incident involving legal data in this repository is the highest
+severity class.** Legal exposure compounds technical exposure: a leaked
+dispute file or executed contract can destroy privilege, weaken a live
+matter, and trigger regulatory notification duties.
 
-| Version         | Supported |
-|-----------------|-----------|
-| `main` (latest) | Yes       |
-| Older releases  | No        |
+**Counsel is notified first** — before or in parallel with the security
+function, never after. Order of notification:
 
-## Reporting a Vulnerability
+1. General counsel (repo owner) — immediately.
+2. Retained counsel for the affected matter (if matter-specific).
+3. Security function / incident commander (`jol-m-infrastructure` runbooks).
+4. Insurer breach coach (cyber policy — `insurance/cyber/`) if personal
+   data or third-party instruments are involved.
+5. DPO (`jol-m-compliance`) if personal data is involved — GDPR 72h clock
+   assessment starts with the DPO, not with this repository.
 
-**Do not open a public issue for security vulnerabilities.**
+## Reporting
 
-If you discover a vulnerability in this repository, report it through one of the following channels:
+**NEVER open issues about legal-data incidents in any public or shared
+repository.** Use the org security mailbox + direct counsel contact.
 
-1. **GitHub Security Advisories** — Use the "Report a vulnerability" button on the repository's Security tab (preferred).
-2. **Email** — Send an encrypted message to `security@journeyoflife.org` using the organisation's published PGP key.
+Include: affected path(s), how the exposure was discovered, suspected
+blast radius (which instruments/matters/personal data), and whether the
+material left the repository (clone, paste, screenshot, e-sign export).
 
-Include the following in your report:
+## What we treat as a security incident
 
-- A description of the vulnerability and its potential impact.
-- Steps to reproduce or a proof-of-concept where feasible.
-- Affected component, file path, and version.
-- Any suggested remediation.
+- Any privileged material (`disputes/`, `regulatory/inquiries/`,
+  `opinions/` marked privileged) appearing outside this repository —
+  including summaries or paraphrases in other repos, issues, or chat.
+- Any executed contract or corporate record appearing outside its custody
+  location (including e-signature envelope exports and signed-PDF caches).
+- Any personal data committed beyond what is load-bearing (see
+  CONTRIBUTING.md minimization rule) — assess under GDPR with the DPO.
+- Any secret (token, API key, signing credential) in git history.
+- Unauthorized access grant to this repository (check access reviews in
+  `audits/`).
 
-## Response Timeline
+## Response targets
 
-| Phase                    | Target SLA     |
-|--------------------------|----------------|
-| Acknowledgement          | 2 business days |
-| Triage and severity      | 5 business days |
-| Remediation plan         | 10 business days |
-| Patch deployment         | Proportional to severity |
+| Stage | Target |
+|-------|--------|
+| Counsel acknowledgement | same business day |
+| Containment (revoke access, purge caches, rotate tokens) | 1 business day |
+| Privilege/breach assessment | 3 business days |
+| Regulatory notification decision (if personal data) | per GDPR 72h clock via DPO |
 
-## Severity Classification
+## Privilege preservation during incidents
 
-Severity is assessed using CVSS v3.1:
+Incident handling must not waive privilege: forensic copies of privileged
+paths are made under counsel direction and labeled; third-party responders
+receive only redacted, counsel-approved excerpts.
 
-| Rating   | Score    | Response                                    |
-|----------|----------|---------------------------------------------|
-| Critical | 9.0–10.0 | Immediate remediation; emergency release    |
-| High     | 7.0–8.9  | Prioritised remediation within one sprint   |
-| Medium   | 4.0–6.9  | Scheduled remediation in next release cycle |
-| Low      | 0.1–3.9  | Tracked; remediated as capacity allows      |
+## Supported scope
 
-## Disclosure Policy
-
-- The reporter receives credit unless they request anonymity.
-- Public disclosure occurs only after a patch is available and affected parties have been notified.
-- A minimum 90-day embargo applies unless the vulnerability is actively exploited.
-
-## Security Controls
-
-This repository enforces the following security baselines:
-
-- **Signed commits** — All commits to protected branches must be GPG or SSH-signed.
-- **Secret scanning** — GitHub Advanced Security secret scanning is enabled repository-wide.
-- **Dependency scanning** — Dependabot alerts and CodeQL analysis run on every pull request.
-- **Branch protection** — The `main` branch requires status checks, CODEOWNERS review, and up-to-date history.
-- **Least privilege** — GitHub Actions workflows use the minimum required permissions via explicit `permissions` blocks.
+Only the default branch (`main`) of this repository is supported.

@@ -1,0 +1,54 @@
+name: Contract request
+description: Business intake — new or changed contract. Legal triages routing, value, and risk tier.
+labels: ["contract", "intake"]
+body:
+  - type: dropdown
+    id: direction
+    attributes:
+      label: Contract direction
+      options: [vendor/supplier, customer, partnership/referral, employment/contractor, other]
+    validations:
+      required: true
+  - type: input
+    id: counterparty
+    attributes:
+      label: Counterparty
+      description: Legal name, jurisdiction (and registry code if known).
+    validations:
+      required: true
+  - type: textarea
+    id: business_need
+    attributes:
+      label: Business need
+      description: What does the business need from this relationship? Desired start date?
+    validations:
+      required: true
+  - type: input
+    id: value
+    attributes:
+      label: Estimated value & term
+      description: e.g., "€24k/yr, 12 months, auto-renew with 60-day notice".
+    validations:
+      required: true
+  - type: dropdown
+    id: paper
+    attributes:
+      label: Whose paper?
+      options: [JOL template (preferred), counterparty paper, redline exchange expected, unknown]
+    validations:
+      required: true
+  - type: dropdown
+    id: risk_tier
+    attributes:
+      label: Risk tier (requester's guess — legal re-classifies)
+      description: Data processing, payments, IP, or exclusivity involved = at least medium.
+      options: [low, medium, high]
+    validations:
+      required: true
+  - type: textarea
+    id: data_processing
+    attributes:
+      label: Personal data & processors
+      description: Will the counterparty process personal data? If yes, a DPA is required (link jol-m-compliance vendor assessment).
+    validations:
+      required: false

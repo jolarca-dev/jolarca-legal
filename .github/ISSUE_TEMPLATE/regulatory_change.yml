@@ -1,0 +1,39 @@
+name: Regulatory change
+description: New or amended EU/national law affecting the marketplace → impact assessment task.
+labels: ["regulatory", "intake"]
+body:
+  - type: input
+    id: instrument
+    attributes:
+      label: Instrument
+      description: e.g., "Regulation (EU) 2024/…", "LT Civil Code amendment", official reference.
+    validations:
+      required: true
+  - type: input
+    id: dates
+    attributes:
+      label: Key dates
+      description: Entry into force / application date / transposition deadline.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Why it may affect us
+      description: Which marketplace activity could be touched (seller KYB, ranking, withdrawals, sacred goods, payments, AI features)?
+    validations:
+      required: true
+  - type: dropdown
+    id: jurisdictions
+    attributes:
+      label: Jurisdictional scope
+      options: [EU-wide, LT, LV, EE, multi-national, other]
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source link(s)
+      description: EUR-Lex / national gazette / authority announcement.
+    validations:
+      required: true

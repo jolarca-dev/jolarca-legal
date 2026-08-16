@@ -1,0 +1,36 @@
+# ip-renewals.yml — quarterly IP portfolio renewal calendar check.
+# Opens a maintenance task listing trademark renewals (EUIPO), domain
+# renewals, and any upcoming grace periods from the IP registers.
+name: ip-renewals
+on:
+  schedule:
+    - cron: "0 7 5 1,4,7,10 *"   # 5th day of Jan/Apr/Jul/Oct, 07:00 UTC
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  ip-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Open quarterly IP renewal review task
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          FOUND=$(gh issue list --state open --search "IP renewal review in:title" --json number)
+          if [ "$FOUND" != "[]" ]; then exit 0; fi
+          gh issue create \
+            --title "IP renewal review — $(date -u +%Y-Q$(( ($(date -u +%-m)-1)/3 + 1 )))" \
+            --label "ip,renewal" \
+            --body "Quarterly IP portfolio check.
+
+          - [ ] Trademarks: verify EUIPO renewal calendar in intellectual-property/trademarks/README.md
+          - [ ] Domains: verify expiry + auto-renew status in intellectual-property/domains/README.md
+          - [ ] UDRP/watch items: any new filings needed?
+          - [ ] Update renewal calendar entries touched by this review.
+
+          Escalate missed windows to GC the same day."

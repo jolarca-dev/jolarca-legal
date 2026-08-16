@@ -1,0 +1,41 @@
+# transparency-report-data.yml — DSA Art. 15/24 semi-annual reporting cadence.
+# Twice a year, opens the data-collection task with the checklist the
+# report draft needs (content moderation stats, notice-and-action metrics,
+# complaint outcomes, KYB actions). Data lineage must be noted in the final
+# report (platform-regulation/dsa/transparency-reports/).
+name: transparency-report-data
+on:
+  schedule:
+    - cron: "0 8 15 1,7 *"   # Jan 15 & Jul 15, 08:00 UTC
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  report-prep:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Open semi-annual transparency report data task
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          FOUND=$(gh issue list --state open --search "DSA transparency report data in:title" --json number)
+          if [ "$FOUND" != "[]" ]; then exit 0; fi
+          gh issue create \
+            --title "DSA transparency report data collection — $(date -u +%Y-%m)" \
+            --label "dsa,transparency" \
+            --body "Semi-annual DSA Art. 15/24 report preparation.
+
+          Data checklist (see platform-regulation/dsa/transparency-reports/):
+          - [ ] Orders received & actioned (Art. 16 notice-and-action)
+          - [ ] Own-initiative moderation actions + statement-of-reasons counts (Art. 17)
+          - [ ] Complaint-handling outcomes (Art. 20)
+          - [ ] KYB/trader-traceability actions (Art. 30)
+          - [ ] Automated means used for moderation — accuracy claims review
+          - [ ] Data lineage noted: source system, extract date, responsible person
+
+          Owners: GC + product data owner. Publish per Art. 15(3)/24(2)."
