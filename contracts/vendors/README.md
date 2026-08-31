@@ -9,7 +9,7 @@ Expected vendors (folders created as instruments execute):
 | Vendor | What runs through it |
 |--------|----------------------|
 | `stripe/` | Connected Account Agreement, platform terms, fee schedule |
-| `google-cloud/` | Cloud services (ties to jol-m-compliance vendor assessment) |
+| `google-cloud/` | Cloud services (ties to jolarca-compliance vendor assessment) |
 | `deepl/` | Translation API |
 | `openai/` | LLM services |
 | `anthropic/` | LLM services |

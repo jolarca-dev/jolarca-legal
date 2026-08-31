@@ -16,7 +16,7 @@ the matter id and the GC's contact — nothing else.
    the folder; all further drafting happens under their direction.
 3. **Response:** drafts live in the matter folder only; sent version
    archived with dispatch proof.
-4. **Closure:** outcome note + feed to `jol-m-compliance/risk-register`
+4. **Closure:** outcome note + feed to `jolarca-compliance/risk-register`
    (aggregated, non-privileged) + retention per `docs/retention-schedule.md`.
 
 ## Legal hold

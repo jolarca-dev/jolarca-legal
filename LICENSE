@@ -12,11 +12,11 @@ Journey of Life general counsel.
 EXCEPTION — published legal texts: files under legal-texts/ are the
 canonical source of marketplace-facing texts (terms, privacy policy, etc.).
 They become public ONLY through the versioned publication pipeline
-(legal-text-sync.yml → jol-m-marketplace). Direct republication of
+(legal-text-sync.yml → jolarca). Direct republication of
 draft, approved-but-not-effective, or privileged versions is prohibited.
 
 The license governing the public marketplace application code lives in the
-respective public repositories (see jol-m-marketplace). Open-source
+respective public repositories (see jolarca). Open-source
 posture for code artifacts (CLA/DCO, AGPL-3.0 governance) is documented in
 intellectual-property/copyright/. This notice governs internal custody of
 legal records within the organization only.

@@ -3,7 +3,7 @@
 
 Consent recorded against a privacy/cookie text version must be
 re-evaluated when that text changes materially. The registry of record
-is the lawful-basis registry in jol-m-compliance.
+is the lawful-basis registry in jolarca-compliance.
 
 With COMPLIANCE_RO_TOKEN unset the script performs an offline sanity
 check of the manifest and prints the follow-ups a live check would need;
@@ -52,7 +52,7 @@ def main() -> int:
             "consent cross-check: COMPLIANCE_RO_TOKEN not set — offline mode.\n"
             "  Manifest OK. Consent-sensitive texts in this release: "
             f"{', '.join(sensitive) if sensitive else 'none'}.\n"
-            "  TODO(legal-automation): query jol-m-compliance/lawful-basis for "
+            "  TODO(legal-automation): query jolarca-compliance/lawful-basis for "
             "consent records pinned to prior versions of these texts and "
             "open a re-consent evaluation task where found."
         )

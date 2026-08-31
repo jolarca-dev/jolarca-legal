@@ -49,6 +49,6 @@ body:
     id: data_processing
     attributes:
       label: Personal data & processors
-      description: Will the counterparty process personal data? If yes, a DPA is required (link jol-m-compliance vendor assessment).
+      description: Will the counterparty process personal data? If yes, a DPA is required (link jolarca-compliance vendor assessment).
     validations:
       required: false

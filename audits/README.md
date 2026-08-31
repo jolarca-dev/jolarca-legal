@@ -12,5 +12,5 @@ from the material they audit.
 | Renewal-window audit | annual | no missed notice windows (contract + IP + insurance); misses are findings |
 
 Files: `internal/YYYY-MM-<audit>.md` — scope, findings, remediation
-owner, close date. Findings feed `jol-m-compliance/risk-register` in
+owner, close date. Findings feed `jolarca-compliance/risk-register` in
 non-privileged phrasing.

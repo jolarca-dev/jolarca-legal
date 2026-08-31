@@ -24,7 +24,7 @@ Directive for our product categories.
    candles/incense = fire-safety labeling hooks).
 3. Safety Gate feed: monitoring process + takedown SOP.
 4. Recall notification to past buyers: channel + data-minimization note
-   (GDPR boundary — with DPO via jol-m-compliance).
+   (GDPR boundary — with DPO via jolarca-compliance).
 
 ## Status
 

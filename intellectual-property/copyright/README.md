@@ -1,7 +1,7 @@
 # copyright/ — Open-source posture
 
 The marketplace application code is published under **AGPL-3.0** (see
-`jol-m-marketplace`). This folder governs the copyright side of that
+`jolarca`). This folder governs the copyright side of that
 posture.
 
 | File | Purpose |

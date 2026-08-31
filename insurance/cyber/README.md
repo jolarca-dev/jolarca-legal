@@ -18,4 +18,4 @@ notification deadline is tracked in `claims/` the moment a potentially
 covered event appears.
 
 Renewal: policy terms re-negotiated at each period with limits checked
-against the current risk register (`jol-m-compliance/risk-register`).
+against the current risk register (`jolarca-compliance/risk-register`).

@@ -1,6 +1,6 @@
 # legal-texts/ — Canonical marketplace legal texts
 
-**The product consumes these files.** `jol-m-marketplace` pins versions
+**The product consumes these files.** `jolarca` pins versions
 from here; nothing in the product's legal surfaces may diverge from a
 pinned version. Legal texts are versioned build artifacts, not CMS content
 (ADR-0001).
@@ -63,7 +63,7 @@ supersedes: ""              # prior version if any
 2. GC tags `legal-texts-vX.Y.Z` (tag annotation links P2B notice evidence
    for MAJOR bumps).
 3. `legal-text-sync.yml` validates, builds the manifest, cross-checks the
-   consent registry (`jol-m-compliance/lawful-basis`), and opens the
+   consent registry (`jolarca-compliance/lawful-basis`), and opens the
    marketplace PR pinning the new versions.
 
 Consent recorded against an old privacy/cookie version must be

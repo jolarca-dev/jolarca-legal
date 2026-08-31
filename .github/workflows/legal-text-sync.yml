@@ -1,8 +1,8 @@
 # legal-text-sync.yml — publication pipeline for canonical legal texts.
 # Triggers on legal-text release tags (legal-texts-vX.Y.Z). Builds the
 # publish manifest, then:
-#   1. opens a PR against jol-m-marketplace pinning the new versions, and
-#   2. notifies the consent registry (jol-m-compliance lawful-basis) that
+#   1. opens a PR against jolarca pinning the new versions, and
+#   2. notifies the consent registry (jolarca-compliance lawful-basis) that
 #      the underlying text versions changed — consent recorded against an
 #      old version must be re-evaluated.
 # MAJOR changes additionally require the P2B 30-day notice evidence to be
@@ -36,11 +36,11 @@ jobs:
 
       - name: Open marketplace PR pinning new versions
         env:
-          # Fine-grained PAT scoped to jol-m-marketplace PR creation only.
+          # Fine-grained PAT scoped to jolarca PR creation only.
           LEGAL_SYNC_TOKEN: ${{ secrets.LEGAL_SYNC_TOKEN }}
         run: |
           # TODO(legal-automation): on first production run, wire this to
-          # `gh pr create` against journeyoflife-org/jol-m-marketplace using
+          # `gh pr create` against journeyoflife-org/jolarca using
           # LEGAL_SYNC_TOKEN, attaching publish-manifest.json and the
           # plain-language changelog excerpts. Kept dry-run until the
           # marketplace repo exposes the legal-text pin contract.

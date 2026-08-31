@@ -14,4 +14,4 @@ Watch items:
 - Use `00-templates/partnership-referral.md` as preferred paper; IP
   positions CL-40/CL-41 apply to co-created content.
 - Partners handling buyer/seller personal data need a DPA in place before
-  go-live (link the jol-m-compliance vendor assessment).
+  go-live (link the jolarca-compliance vendor assessment).

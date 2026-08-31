@@ -1,4 +1,4 @@
-# Architecture — jol-m-legal in the fleet
+# Architecture — jolarca-legal in the fleet
 
 Template-inherited baseline, extended for the legal function: how legal
 texts flow into product builds, and where each legal artifact's custody
@@ -7,16 +7,16 @@ lives.
 ## Repository boundaries
 
 ```
-jol-m-legal            legal instruments, texts, governance (this repo)
+jolarca-legal            legal instruments, texts, governance (this repo)
   │  publishes tagged legal-text versions (legal-text-sync.yml)
   ▼
-jol-m-marketplace      product code; PINS legal-text versions
+jolarca      product code; PINS legal-text versions
   │  consent records reference text versions
   ▼
-jol-m-compliance       RoPA, lawful-basis registry, DPIA records,
+jolarca-compliance       RoPA, lawful-basis registry, DPIA records,
                        risk register, DSAR logs (GDPR evidence home)
 
-jol-m-infrastructure   runs the planes; no legal content
+jolarca-infrastructure   runs the planes; no legal content
 ```
 
 Rules:
@@ -24,7 +24,7 @@ Rules:
 - **Single canonical source.** Marketplace-facing texts exist once:
   `legal-texts/`. The product consumes pinned versions; it never edits.
 - **Evidence segregation.** GDPR operational evidence lives in
-  `jol-m-compliance`; this repo holds instruments + analysis. Cross-refs
+  `jolarca-compliance`; this repo holds instruments + analysis. Cross-refs
   are by path/id, never by copying content.
 - **Privilege boundary.** Nothing privileged crosses repository
   boundaries — not even summaries. Matter ids travel; substance does not.

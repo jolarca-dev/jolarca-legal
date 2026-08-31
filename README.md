@@ -1,7 +1,7 @@
-# jol-m-legal — Legal Function Repository
+# jolarca-legal — Legal Function Repository
 
 **Private** repository of record for the Journey of Life marketplace legal
-function (`jol-m-*` fleet). Corporate governance, contract lifecycle,
+function (`jolarca-*` fleet). Corporate governance, contract lifecycle,
 marketplace legal texts, EU platform-regulation compliance, IP, disputes,
 and regulatory correspondence live here.
 
@@ -13,7 +13,7 @@ and regulatory correspondence live here.
 ## What this repository is
 
 - **Canonical source** for marketplace legal texts (`legal-texts/`). The
-  product (`jol-m-marketplace`) consumes versioned, tagged releases — legal
+  product (`jolarca`) consumes versioned, tagged releases — legal
   texts are build artifacts, not CMS content (ADR-0001).
 - **Contract lifecycle management (CLM)** for vendors, customers,
   partnerships, and employment (`contracts/`), with a machine-readable
@@ -24,9 +24,9 @@ and regulatory correspondence live here.
   insurance, and legal opinions.
 
 Cross-repo boundaries: GDPR evidence (RoPA, DPIAs-as-records, lawful-basis
-registry, DSAR logs) lives in `jol-m-compliance`; this repository holds the
+registry, DSAR logs) lives in `jolarca-compliance`; this repository holds the
 legal instruments and analysis. Dispute outcomes feed
-`jol-m-compliance/risk-register`.
+`jolarca-compliance/risk-register`.
 
 ## Privilege & access rules
 
@@ -43,7 +43,7 @@ legal instruments and analysis. Dispute outcomes feed
 |------|---------|-------|
 | General counsel (owner) | TBD — fill on onboarding | All areas; signing authority matrix in `docs/signing-authority-matrix.md` |
 | Retained litigation counsel | TBD | `disputes/` matters only |
-| Data-protection counsel | TBD | GDPR/DSA interface with `jol-m-compliance` |
+| Data-protection counsel | TBD | GDPR/DSA interface with `jolarca-compliance` |
 | IP agent (EUIPO filings) | TBD | `intellectual-property/trademarks/` |
 
 ## Request intake & SLAs
@@ -86,7 +86,7 @@ make renewal-report # upcoming renewals & notice windows from contracts register
 
 Renewal automation (`contract-renewals.yml`) opens tasks at 90/60/30 days
 before expiry or notice deadlines. Legal-text releases are tagged;
-`legal-text-sync.yml` publishes versions to `jol-m-marketplace` and the
+`legal-text-sync.yml` publishes versions to `jolarca` and the
 consent registry.
 
 ## Change discipline

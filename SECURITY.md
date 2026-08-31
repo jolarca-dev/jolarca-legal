@@ -1,4 +1,4 @@
-# Security Policy — jol-m-legal
+# Security Policy — jolarca-legal
 
 ## Severity doctrine
 
@@ -12,10 +12,10 @@ function, never after. Order of notification:
 
 1. General counsel (repo owner) — immediately.
 2. Retained counsel for the affected matter (if matter-specific).
-3. Security function / incident commander (`jol-m-infrastructure` runbooks).
+3. Security function / incident commander (`jolarca-infrastructure` runbooks).
 4. Insurer breach coach (cyber policy — `insurance/cyber/`) if personal
    data or third-party instruments are involved.
-5. DPO (`jol-m-compliance`) if personal data is involved — GDPR 72h clock
+5. DPO (`jolarca-compliance`) if personal data is involved — GDPR 72h clock
    assessment starts with the DPO, not with this repository.
 
 ## Reporting

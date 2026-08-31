@@ -67,7 +67,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 ---
 
-## Project-Specific Guidelines — jol-m-legal
+## Project-Specific Guidelines — jolarca-legal
 
 This repository is the legal record of the organization; every merge must
 stand up as evidence. The full rules live in `CONTRIBUTING.md`; these
