@@ -2,13 +2,13 @@
 
 Layered design: short first-layer notice in-product, full policy here.
 
-- Collection points must map to the RoPA in `jol-m-compliance/ropa/` —
+- Collection points must map to the RoPA in `jolarca-compliance/ropa/` —
   a new processing activity needs RoPA entry AND policy update.
 - Lawful bases per processing are maintained in
-  `jol-m-compliance/lawful-basis/`; material text changes trigger the
+  `jolarca-compliance/lawful-basis/`; material text changes trigger the
   consent cross-check (`scripts/cross-check-consent.py`).
 - Controller identity comes from `corporate/formation/`; DPO contact from
-  `jol-m-compliance`.
+  `jolarca-compliance`.
 
 Section skeleton (en): 1. controller & DPO · 2. what we collect, by
 role (buyer/seller/visitor) · 3. purposes & lawful bases table ·

@@ -1,9 +1,9 @@
 # VMI (LT) — i.SAF obligation record (FR0600)
 
-- Recorded: 2026-08-17 (STEP 26 corrections, jol-m-compliance)
-- Status: obligation REGISTERED; engineering export spec pending (jol-m-data issue)
-- Cross-references: `jol-m-compliance/docs/regulatory-obligations.md` OBL-001;
-  `jol-m-compliance/docs/retention-schedule.md` §2 (LT 10y accounting class)
+- Recorded: 2026-08-17 (STEP 26 corrections, jolarca-compliance)
+- Status: obligation REGISTERED; engineering export spec pending (jolarca-data issue)
+- Cross-references: `jolarca-compliance/docs/regulatory-obligations.md` OBL-001;
+  `jolarca-compliance/docs/retention-schedule.md` §2 (LT 10y accounting class)
 
 ## The obligation
 
@@ -24,8 +24,8 @@ issued and received VAT invoices.
 - Lithuanian entity invoicing (marketplace commission invoices, seller
   invoicing flows) — Lithuanian pilot scope first; LV/EE analogues
   `[COUNSEL-TO-CONFIRM]`.
-- Source of truth for the export: finance marts in jol-m-data (`fct_vat_oss`,
-  invoice models) — tracked in jol-m-data issue "i.SAF FR0600 export".
+- Source of truth for the export: finance marts in jolarca-data (`fct_vat_oss`,
+  invoice models) — tracked in jolarca-data issue "i.SAF FR0600 export".
 
 ## Penalties
 

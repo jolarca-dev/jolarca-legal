@@ -12,7 +12,7 @@ supersedes: ""
 
 <!-- CANONICAL EN SKELETON — GDPR Art. 13/14 layered notice. First-layer
      notice lives in-product; this is the second layer. Wording drafted by
-     counsel against the jol-m-compliance RoPA. -->
+     counsel against the jolarca-compliance RoPA. -->
 
 ## 1. Who we are
 

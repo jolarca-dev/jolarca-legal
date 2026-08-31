@@ -1,4 +1,4 @@
-# Contributing — jol-m-legal
+# Contributing — jolarca-legal
 
 Legal operators and counsel. Every merge here is a legal record; the
 history must stand up as evidence. Commits follow Conventional Commits;

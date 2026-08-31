@@ -1,4 +1,4 @@
-# jol-m-legal — legal operator hygiene targets.
+# jolarca-legal — legal operator hygiene targets.
 # Targets must stay runnable without credentials (pure-repo checks).
 
 SHELL := /bin/bash

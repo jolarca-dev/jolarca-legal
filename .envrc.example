@@ -3,12 +3,12 @@
 # NEVER commit real values; NEVER paste tokens into issue trackers or chat.
 
 # ── Cross-repo publication (legal-text-sync.yml local runs) ───────────────
-# Fine-grained PAT scoped to jol-m-marketplace PR creation ONLY.
-# Rotation follows the same discipline as jol-m-infrastructure tokens.
+# Fine-grained PAT scoped to jolarca PR creation ONLY.
+# Rotation follows the same discipline as jolarca-infrastructure tokens.
 export LEGAL_SYNC_TOKEN=""
 
 # ── Consent registry cross-check (scripts/cross-check-consent.py) ─────────
-# Read-only token for the jol-m-compliance lawful-basis registry.
+# Read-only token for the jolarca-compliance lawful-basis registry.
 export COMPLIANCE_RO_TOKEN=""
 
 # ── Document-management custody location (signed originals) ───────────────

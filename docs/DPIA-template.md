@@ -1,7 +1,7 @@
 # DPIA template — GDPR Art. 35
 
 Template-inherited from the fleet baseline; legal-flavored extensions
-below. **Completed DPIAs file in `jol-m-compliance/dpia/`** — this
+below. **Completed DPIAs file in `jolarca-compliance/dpia/`** — this
 repository keeps the template and legal-side inputs only.
 
 **When required:** any change introducing or altering processing of
