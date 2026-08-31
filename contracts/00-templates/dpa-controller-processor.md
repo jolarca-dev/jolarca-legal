@@ -2,7 +2,7 @@
 
 <!-- TEMPLATE STATUS: scaffold — counsel completes wording before first use.
      Usage: any vendor processing personal data on JOL's behalf (Art. 28
-     GDPR). Pairs with the jol-m-compliance vendor assessment + TIA. -->
+     GDPR). Pairs with the jolarca-compliance vendor assessment + TIA. -->
 
 ## Deal-sheet defaults
 
@@ -32,5 +32,5 @@
 
 ## Linkages
 
-- Every signed DPA links a jol-m-compliance vendor-assessment file and,
+- Every signed DPA links a jolarca-compliance vendor-assessment file and,
   for transfers, the TIA. Register row in `contracts/vendors/_register.csv`.

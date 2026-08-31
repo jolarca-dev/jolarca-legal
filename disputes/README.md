@@ -26,7 +26,7 @@ Cross-repo references use the matter id only
    pointers).
 3. **Close:** outcome note, costs, lessons; folder moves to `closed/`;
    outcome register row added; aggregated lesson fed to
-   `jol-m-compliance/risk-register` (non-privileged phrasing only).
+   `jolarca-compliance/risk-register` (non-privileged phrasing only).
 
 ## Hard rules
 

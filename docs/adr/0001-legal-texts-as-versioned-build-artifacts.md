@@ -12,8 +12,8 @@ gates are informal, and publication is decoupled from the product build.
 
 ## Decision
 
-Legal texts live in `jol-m-legal/legal-texts/` as markdown with SemVer
-front-matter. The product (`jol-m-marketplace`) pins a version; tags
+Legal texts live in `jolarca-legal/legal-texts/` as markdown with SemVer
+front-matter. The product (`jolarca`) pins a version; tags
 (`legal-texts-vX.Y.Z`) drive a publication pipeline that validates,
 cross-checks consent records, and opens the pinning PR. Published
 versions are immutable; changes ship as new versions with plain-language

@@ -8,7 +8,7 @@ Closed matter folders move here intact (history preserved). The
 
 Rules:
 
-- Outcomes feed `jol-m-compliance/risk-register` in non-privileged
+- Outcomes feed `jolarca-compliance/risk-register` in non-privileged
   phrasing only — no strategy, no settlement amounts outside GC channel.
 - Retention per `docs/retention-schedule.md`; limitation-period checks
   (reopening risk) are noted at closure.

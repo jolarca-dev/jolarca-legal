@@ -5,7 +5,7 @@ AKI (EE) appear for cross-border matters affecting their residents.
 
 - Correspondence log per `regulatory/README.md` convention.
 - Complaint referrals from an authority: intake same day, DPO looped in
-  via `jol-m-compliance/incidents/`, counsel answers.
+  via `jolarca-compliance/incidents/`, counsel answers.
 - Art. 58 investigative powers (information requests, audits): handled
   as `../inquiries/` matters — privilege rules apply from intake.
 - Cooperation/consistency-mechanism cases: track lead-authority status

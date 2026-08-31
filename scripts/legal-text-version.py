@@ -114,7 +114,7 @@ def manifest() -> dict:
         )
     return {
         "generated": datetime.date.today().isoformat(),
-        "source_repo": "jol-m-legal",
+        "source_repo": "jolarca-legal",
         "texts": texts,
     }
 

@@ -8,7 +8,7 @@ a change to banner behavior is a change to this text.
 - No non-essential storage before affirmative consent; rejection as easy
   as acceptance (no dark patterns — EDPB guidance).
 - Consent records (what version, when, what options) are kept per
-  `jol-m-compliance/lawful-basis/`; version changes here can invalidate
+  `jolarca-compliance/lawful-basis/`; version changes here can invalidate
   prior consent (cross-check script).
 
 Section skeleton (en): 1. what cookies/storage we use · 2. categories

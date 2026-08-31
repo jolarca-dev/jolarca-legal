@@ -30,7 +30,7 @@ decision in the instrument's `metadata.md`.
 | ID | Position | Notes |
 |----|----------|-------|
 | CL-20 | JOL DPA template (controller→processor) is our paper | dpa-controller-processor.md |
-| CL-21 | SCCs Module per roles; no pre-2021 SCCs | Tie to jol-m-compliance TIA |
+| CL-21 | SCCs Module per roles; no pre-2021 SCCs | Tie to jolarca-compliance TIA |
 | CL-22 | Sub-processor notification + right to object (30 days) | |
 | CL-23 | Breach notification to JOL ≤ 48 hours | Supports our 72h GDPR clock |
 

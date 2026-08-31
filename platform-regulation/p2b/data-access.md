@@ -17,7 +17,7 @@ what conditions, (c) whether they can access data in aggregated form,
 2. **Buyer personal data** — access limited to what fulfillment requires
    (name, delivery address, contact); reuse restrictions stated
    explicitly (no marketing reuse without independent lawful basis —
-   cross-reference `jol-m-compliance/lawful-basis`).
+   cross-reference `jolarca-compliance/lawful-basis`).
 3. **Aggregated data** — what category-level analytics we expose
    (currently: sales dashboards; extend deliberately).
 4. **Portability at exit** — export window during offboarding
