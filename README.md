@@ -1,7 +1,7 @@
 # jolarca-legal — Legal Function Repository
 
 **Private** repository of record for the Journey of Life marketplace legal
-function (`jol-m-*` fleet). Corporate governance, contract lifecycle,
+function (`jolarca-*` fleet). Corporate governance, contract lifecycle,
 marketplace legal texts, EU platform-regulation compliance, IP, disputes,
 and regulatory correspondence live here.
 
