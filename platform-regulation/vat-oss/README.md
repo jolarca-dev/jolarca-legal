@@ -3,22 +3,34 @@
 Legal memos; the operational filings live with finance — this tree holds
 the analysis and the positions.
 
-## Key questions (one memo each when analyzed)
+## Completed memos
 
-1. **Deemed-supplier analysis** — when does Art. 14a VAT Directive make
-   the marketplace the deemed supplier (facilitation of ≤ €10k
-   cross-border B2C digital services; goods from non-EU sellers in
-   consignments ≤ €150 via IOSS)? Our goods catalog is mostly physical
-   intra-EU B2C → baseline: sellers account for VAT; document exceptions
-   precisely. Memo: `deemed-supplier-analysis.md`.
-2. **OSS mechanics per market** — LT (VMI), LV (VID), EE (EMTA): where
-   JOL needs OSS registration vs. where sellers do; our registration in
-   `corporate/registrations/oss/`. Memo: `oss-mechanics.md`.
-3. **Commission invoicing** — VAT treatment of our platform fees
-   (B2B reverse charge vs. B2C), invoice requirements (CL-51).
-4. **Distance-sale thresholds & evidence** — what marketplace reports
-   must give sellers for their own OSS filings (DAC7-adjacent data
-   duties — see `watches/dac7.md` if platform-reporting lands).
+1. **Deemed-supplier analysis** — `deemed-supplier-analysis.md`
+   When does Art. 14a VAT Directive make the marketplace the deemed
+   supplier. Position: baseline intra-EU physical goods → sellers
+   account for VAT; exceptions for non-EU sellers and digital content
+   documented precisely.
+
+2. **OSS mechanics per market** — `oss-mechanics.md`
+   LT (VMI), LV (VID), EE (EMTA): JOL's OSS registration via VMI (LT);
+   Sellers' own OSS obligations; commission invoicing VAT treatment
+   (reverse charge for B2B); distance-sale evidence requirements.
+
+3. **Per-country VAT rate table** — `vat-rate-table.md`
+   Standard and reduced rates for LT (21%), LV (21%), EE (22%);
+   category-specific rates for books, funeral services, religious goods;
+   cross-border rate application rules; checkout implementation
+   requirements.
+
+## Key positions
+
+- **Deemed supplier:** JOL is NOT the deemed supplier for the baseline
+  catalog (EU sellers → EU consumers, physical goods). Deemed-supplier
+  status applies only for non-EU sellers in ≤ €150 consignments or
+  non-EU digital services.
+- **Commission VAT:** Reverse charge applies (B2B intermediary service).
+- **OSS registration:** JOL registers via VMI (Lithuania) as Member
+  State of identification.
 
 ## Rules
 
