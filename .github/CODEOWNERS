@@ -1,29 +1,12 @@
-# CODEOWNERS — routes reviews; the approving-review COUNT is enforced by
-# branch protection / rulesets (see CONTRIBUTING.md, risk classes).
-# CODEOWNERS alone cannot require N approvers — do not rely on it for that.
+# CODEOWNERS — jolarca-dev marketplace fleet
+#
+# ADR-0004 R4: no mission-platform references allowed.
+# D-20: previous version referenced @journeyoflife-org/* and @jol-infrastructure/*
+# which don't exist in this org, making require_code_owner_reviews inert.
+#
+# jolarca-dev has zero teams (D-10). Until teams are created, the sole
+# operator (@JourneyOfLife) is the code owner for everything.
+#
+# When teams are created, update this file to reference them.
 
-# Default: general counsel owns the legal record
-*                                       @journeyoflife-org/general-counsel
-
-# Executed instruments and all marketplace legal texts — GC required (§3)
-/legal-texts/                           @journeyoflife-org/general-counsel
-/contracts/                             @journeyoflife-org/general-counsel
-
-# Privileged paths — GC + retained counsel; restricted by design
-/disputes/                              @journeyoflife-org/general-counsel @journeyoflife-org/retained-counsel
-/regulatory/inquiries/                  @journeyoflife-org/general-counsel @journeyoflife-org/retained-counsel
-/opinions/                              @journeyoflife-org/general-counsel
-
-# Corporate records and signing authority
-/corporate/                             @journeyoflife-org/general-counsel
-/docs/signing-authority-matrix.md       @journeyoflife-org/general-counsel
-
-# Employment contracts — access-restricted path
-/contracts/employment/                  @journeyoflife-org/general-counsel
-
-# Automation touching the legal record needs security in the loop
-/.github/workflows/                     @journeyoflife-org/general-counsel @journeyoflife-org/security
-/scripts/                               @journeyoflife-org/general-counsel @journeyoflife-org/security
-
-# Compliance evidence linkage (lawful-basis registry cross-check)
-/scripts/cross-check-consent.py         @journeyoflife-org/general-counsel @journeyoflife-org/compliance
+* @JourneyOfLife
