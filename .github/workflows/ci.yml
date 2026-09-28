@@ -36,6 +36,9 @@ jobs:
       - name: Personal-data pattern scan
         run: bash scripts/check-personal-data.sh
 
+      - name: Unit tests (scripts)
+        run: python3 -m unittest discover -s scripts/tests -v
+
       - name: Shellcheck operator scripts
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq shellcheck
