@@ -35,7 +35,18 @@ per-text changelogs under `legal-texts/<text>/CHANGELOG.md`.
   B-1/B-3/B-4/H-1 remediated, B-2 open on a billing decision.
 - Monthly "Governance & CI integrity" cadence row in `audits/README.md` —
   closes the audit-programme blind spot where B-1 occurred.
+- Unit tests wired into CI gate: `python3 -m unittest discover -s scripts/tests -v`
+  runs as a required step in `ci.yml` (PR #13, closes audit finding H-3).
+
+### Changed
+
+- Supply chain hardened: all `uses:` directives in workflows are now SHA-pinned
+  (PR #14, closes audit findings M-2 + M-3); `yamllint` pinned to exact version
+  `1.38.0` (was `>=1.35` floating).
 
 ### Fixed
 
 - `.github/CODEOWNERS` restored after deletion by b6d4fbc (PR #11).
+- `.gitignore` now excludes Python bytecode (`__pycache__/`, `*.py[cod]`,
+  `*.pyo`) to prevent accidental commit of generated artifacts (PR #15,
+  closes audit finding L-1).
