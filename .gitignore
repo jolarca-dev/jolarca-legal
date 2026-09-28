@@ -41,3 +41,8 @@ id_ed25519*
 # ── Python virtual environments (tooling harness only — no runtime code) ──
 .venv/
 venv/
+
+# ── Python bytecode (generated artifacts, never commit) ───────────────────
+__pycache__/
+*.py[cod]
+*.pyo
