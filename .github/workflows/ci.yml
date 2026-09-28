@@ -20,7 +20,7 @@ jobs:
 
       - name: YAML lint
         run: |
-          pip install --quiet "yamllint>=1.35"
+          pip install --quiet "yamllint==1.38.0"
           YAMLLINT_CFG="{extends: default, rules: {line-length: {max: 140},"
           YAMLLINT_CFG="$YAMLLINT_CFG comments: {min-spaces-from-content: 1},"
           YAMLLINT_CFG="$YAMLLINT_CFG truthy: disable, document-start: disable,"
