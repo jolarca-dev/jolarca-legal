@@ -10,6 +10,7 @@ from the material they audit.
 | Legal-text sync audit | quarterly | product-pinned versions match published manifest; consent registry consistent |
 | Retention sweep | annual | retention-schedule.md deadlines executed; holds respected |
 | Renewal-window audit | annual | no missed notice windows (contract + IP + insurance); misses are findings |
+| Governance & CI integrity | monthly | required checks green on default branch; all gated governance files present; hook toolchain resolves inside this repo; commits signed and verifiable |
 
 Files: `internal/YYYY-MM-<audit>.md` — scope, findings, remediation
 owner, close date. Findings feed `jolarca-compliance/risk-register` in

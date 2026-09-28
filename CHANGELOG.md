@@ -30,3 +30,12 @@ per-text changelogs under `legal-texts/<text>/CHANGELOG.md`.
 - ADR-0001: legal texts as versioned build artifacts, not CMS content.
 - Glossary (LT/LV/EE term equivalents), signing-authority matrix,
   retention schedule.
+- Repository readiness audit (`audits/internal/2026-09-repo-readiness-gate.md`):
+  15 findings across governance, access control, signing, and CI integrity;
+  B-1/B-3/B-4/H-1 remediated, B-2 open on a billing decision.
+- Monthly "Governance & CI integrity" cadence row in `audits/README.md` —
+  closes the audit-programme blind spot where B-1 occurred.
+
+### Fixed
+
+- `.github/CODEOWNERS` restored after deletion by b6d4fbc (PR #11).
